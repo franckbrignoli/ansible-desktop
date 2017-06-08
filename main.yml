@@ -1,0 +1,7 @@
+- name: Ansible Ubuntu Laptop
+  hosts: localhost
+  roles:
+    - chrome
+    - desktop
+    - albert 
+    - docker

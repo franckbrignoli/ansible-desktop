@@ -1,0 +1,28 @@
+  - name: Install packages
+    apt: name={{item}} state=installed
+    with_items:
+      - git
+      - jq
+      - terminator
+      - freeplane
+      - curl
+      - python-pip
+      - keepassx
+      - vlc
+      - xclip
+      - shutter
+      - vagrant
+      - virtualbox
+      - nfs-common
+      - nfs-kernel-server
+      - linux-headers-4.10.0-19-generic
+      - build-essential
+      - dkms
+      - nmap
+
+  - name: Install PIP packages
+    pip: name={{item}} state=present
+    with_items:
+      - awscli 
+
+     

@@ -1,0 +1,28 @@
+- name: Packages for repository over HTTPS
+  apt: name={{item}} state=installed
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+
+- name: Add GPG key
+  apt_key: url='https://download.docker.com/linux/ubuntu/gpg' state=present
+
+
+- name: Add Docker PPA Repository
+  apt_repository: repo='deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable' state=present
+
+
+- name: Install Docker
+  apt: name=docker-ce state=installed
+
+- name: Add docker group
+  group: name=docker state=present
+
+
+- name: Add user to group
+  user:
+    name: "{{ username }}"
+    groups: docker
+    append: yes 
