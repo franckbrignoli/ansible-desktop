@@ -26,3 +26,6 @@
     name: "{{ username }}"
     groups: docker
     append: yes 
+
+- name: Install docker-compose
+  apt: name=docker-compose state=installed
