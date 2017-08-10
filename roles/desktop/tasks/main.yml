@@ -19,10 +19,13 @@
       - build-essential
       - dkms
       - nmap
+      - openvpn
+      - mysql-workbench
 
   - name: Install PIP packages
     pip: name={{item}} state=present
     with_items:
       - awscli 
+      - aws-shell
 
      
